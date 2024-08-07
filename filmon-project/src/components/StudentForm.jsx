@@ -28,6 +28,19 @@ export default function StudentForm(){
                     <option>Star Trek</option>
                 </select>
             </label>
+            <label className="form-control w-full max-w-xs">
+                <div className="label">
+                    <span className="label-text">Certificate</span>
+                </div>
+                <select className="select select-bordered">
+                    <option disabled selected>Pick one</option>
+                    <option>Certificate 1</option>
+                    <option>Certificate 2</option>
+                    <option>Certificate 3</option>
+                    <option>Certificate 4</option>
+                    <option>Certificate 5</option>
+                </select>
+            </label>
         </label>
         </>
     )
