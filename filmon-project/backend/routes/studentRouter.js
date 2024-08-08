@@ -56,6 +56,14 @@ router.get("/students/:id", async (req, res) => {
     } else {
       res.status(200).send(foundStudent);
     }
+  } catch (error) {}
+});
+
+// get all students
+router.get("/students", async (req, res) => {
+  try {
+    const allStudents = await Student.find();
+    res.status(200).send(allStudents);
   } catch (error) {
     console.log(error);
     res.status(400).send(error);

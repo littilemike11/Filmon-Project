@@ -1,18 +1,26 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import StudentForm from "./components/StudentForm"
 import StudentsDisplay from './components/StudentsDisplay'
 import StudentPage from './components/StudentPage'
+import { getStudents } from './services/api'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [students, setStudents] = useState([])
 
+  const fetchStudents = async () => {
+    const response = await getStudents();
+    console.log(response.data)
+  }
+  useEffect(() => {
+    fetchStudents();
+  }, [])
   return (
     <>
-      <div>Student Enrollment</div>
-      <StudentForm/>
-      <StudentsDisplay/>
-      <StudentPage/>
+      <div>St Mary</div>
+
+      <StudentsDisplay />
+
     </>
   )
 }
