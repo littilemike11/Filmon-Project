@@ -3,6 +3,7 @@ import './App.css'
 import StudentsDisplay from './components/StudentsDisplay'
 import NavBar from './components/NavBar'
 import { getStudents } from './services/api'
+import { Outlet } from 'react-router-dom'
 
 
 function App() {
@@ -15,20 +16,20 @@ function App() {
   useEffect(() => {
     fetchStudents();
   }, [])
+
   return (
     <>
       <NavBar />
       <StudentsDisplay
         students={students}
       />
-
     </>
   )
 }
 
 /*
 Next steps
-1. add image implementation - elias
+1. add image implementation - elias 8/7 recording
 2. custom routing based on student Name - dylan
 3. implement use context to pass info to different pages/routes -dylan
 4. better mobile ui scaling

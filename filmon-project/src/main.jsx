@@ -10,7 +10,7 @@ import StudentPage from './components/StudentPage.jsx'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
   },
   {
     path: "/enroll",
@@ -18,7 +18,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/student',
-    element: <StudentPage />
+    children: [
+      {
+        path: '/student/:Name',
+        element: <StudentPage />
+      }
+    ]
   }
 ])
 

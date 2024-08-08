@@ -1,6 +1,9 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import NavBar from "./NavBar"
-export default function StudentPage() {
+export default function StudentPage(props) {
+    const location = useLocation();
+    const student = location.state?.student;
+    console.log(student)
     return (
         <>
             {/* navbar */}
@@ -18,9 +21,10 @@ export default function StudentPage() {
                         </div>
                         <div>
                             <div className=" text-3xl">
-                                Selome Haile
+                                {student.Name}
                             </div>
                             <div className="">
+                                {student.Bio}
                                 I want to live a godly life and be as holy as possible by God's Grace
                             </div>
                         </div>
@@ -34,22 +38,27 @@ export default function StudentPage() {
             <div>
                 <div className="card text-start border-2 border-slate-400 my-4">
                     <p>School</p>
-                    <p>8th Grade | 3.8 | East Middle School</p>
+                    <p>{student.Grade} | {student.GPA} | {student.School}</p>
                     <p>Focusing on my grades and want to be a Doctor when i grow up</p>
                 </div>
                 <div className="card text-start border-2 border-slate-400 my-4">
                     <p>Tirgrinya</p>
-                    <p>level 1</p>
+                    <p>{student.TigrinyaLevel}</p>
                     <p>Learning letters and slowly understanding how to pronounce them</p>
                 </div>
                 <div className="card text-start border-2 border-slate-400 my-4">
                     <p>Prayers</p>
-                    <p>prayer text</p>
+                    <p>{student.Prayer}</p>
                     <p>I've been studying at Church and have a book that has all the Prayers.</p>
                 </div>
                 <div className="card text-start border-2 border-slate-400 my-4">
                     <p>Qidasse</p>
-                    <p>Kulu Zegebra</p>
+                    <p>{student.Qidasse}</p>
+                    <p>I'm just starting out so just need to keep a food schedule to make progress</p>
+                </div>
+                <div className="card text-start border-2 border-slate-400 my-4">
+                    <p>Bible</p>
+                    <p>{student.BibleCertificate}</p>
                     <p>I'm just starting out so just need to keep a food schedule to make progress</p>
                 </div>
             </div>
