@@ -1,5 +1,4 @@
 export default function StudentCard(props) {
-    console.log(props.student)
     return (
         <>
             <div className="card my-8 bg-base-200 shadow-xl ">
