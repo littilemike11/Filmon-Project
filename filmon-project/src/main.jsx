@@ -4,12 +4,17 @@ import App from './App.jsx'
 import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import StudentForm from './components/StudentForm.jsx'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />
   },
+  {
+    path: "/enroll",
+    element: <StudentForm />
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
