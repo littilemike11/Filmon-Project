@@ -5,6 +5,7 @@ import './index.css'
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import StudentForm from './components/StudentForm.jsx'
+import StudentPage from './components/StudentPage.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
   {
     path: "/enroll",
     element: <StudentForm />
+  },
+  {
+    path: '/student',
+    element: <StudentPage />
   }
 ])
 

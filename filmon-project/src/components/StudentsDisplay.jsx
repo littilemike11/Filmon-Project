@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import StudentCard from "./StudentCard"
 import { Link } from "react-router-dom"
 export default function studentsDisplay(props) {
@@ -12,9 +12,6 @@ export default function studentsDisplay(props) {
             student.Name.toLowerCase().includes(value.toLowerCase()));//if searchText is used instead of value, its not updated by 1
         setFilteredStudents(filtered);
     };
-
-    console.log(searchText)
-    console.log(filteredStudents)
 
     return (
         <>
@@ -45,9 +42,11 @@ export default function studentsDisplay(props) {
                     <ul>
                         {filteredStudents.map((student, index) => (
                             <li key={index}>
-                                <StudentCard
-                                    student={student}
-                                />
+                                <Link to={"/student"}>
+                                    <StudentCard
+                                        student={student}
+                                    />
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -56,9 +55,11 @@ export default function studentsDisplay(props) {
                     <ul>
                         {props.students.map((student, index) => (
                             <li key={index}>
-                                <StudentCard
-                                    student={student}
-                                />
+                                <Link to={"/student"}>
+                                    <StudentCard
+                                        student={student}
+                                    />
+                                </Link>
                             </li>
                         ))}
 
