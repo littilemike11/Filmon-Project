@@ -1,9 +1,9 @@
 import StudentCard from "./StudentCard"
-export default function studentsDisplay() {
+export default function studentsDisplay(props) {
     return (
         <>
             {/* search bar */}
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center my-4 gap-2">
                 <input type="text" className="grow" placeholder="Search" />
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -18,9 +18,16 @@ export default function studentsDisplay() {
             </label>
 
             <ul>
-                <li>
-                    <StudentCard />
-                </li>
+                {props.students.map((student, index) => (
+                    <li key={index}>
+                        <StudentCard
+
+                            student={student}
+                        />
+                    </li>
+
+
+                ))}
 
             </ul>
         </>
