@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import express from "express";
+//elias has a non cors version ie server proxy
 import cors from "cors";
 
 const PORT = 3000;
@@ -7,7 +8,7 @@ const PORT = 3000;
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
 // app.use("/api/v1");
 
 const uri =
