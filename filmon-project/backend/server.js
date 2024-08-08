@@ -1,18 +1,18 @@
 import mongoose from "mongoose";
 import express from "express";
+const app = express();
+
 //elias has a non cors version ie server proxy
 import cors from "cors";
-
+import studentRouter from "./routes/studentRouter.js";
 const PORT = 3000;
-
-const app = express();
 
 app.use(express.json());
 // app.use(cors());
-// app.use("/api/v1");
+app.use("/api/v1", studentRouter);
 
 const uri =
-  "mongodb+srv://michaeledquilan:avBMVN4pNUArKfQP@cluster0.ipfvapa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://michaeledquilan:avBMVN4pNUArKfQP@cluster0.ipfvapa.mongodb.net/filmon?retryWrites=true&w=majority&appName=Cluster0";
 const clientOptions = {
   serverApi: { version: "1", strict: true, deprecationErrors: true },
 };
