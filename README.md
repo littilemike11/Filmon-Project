@@ -13,6 +13,7 @@ A progress tracker app for the students of St. Mary
 
 - change bible certificates to pg numbers
 - add image implementation
+- add update / delete routes
 - better mobile ui scaling
 
 ## Extra
