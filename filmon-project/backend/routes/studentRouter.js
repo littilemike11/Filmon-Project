@@ -121,6 +121,35 @@ router.put("/students/:id", async (req, res) => {
   }
 });
 
+//delete Student by id
+router.delete("/students/:id", async (req, res) => {
+  const id = req.params.id;
+  let statusCode = 200;
+  let messageObject = { message: "successfully deleted student!" };
+
+  try {
+    const deleteStudent = await Student.findByIdAndDelete(id);
+    if (!deleteStudent) {
+      statusCode = 404;
+      messageObject = { message: "could not find student to delete!" };
+    }
+  } catch (e) {
+    if (e.kind === "ObjectId") {
+      statusCode = 400;
+      messageObject = {
+        message:
+          "there was a problem with the ObjectId format. Please ensure that you've entered a valid ObjectId",
+        reason: e.reason.message,
+      };
+    } else {
+      statusCode = 500;
+      messageObject = { message: "something went wrong, check console" };
+      console.log(e);
+    }
+  }
+  return res.status(statusCode).json({ messageObject });
+});
+
 router.get("/students/test", (req, res) => {
   res.status(200).json({ message: "good job" });
 });
