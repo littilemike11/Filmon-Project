@@ -69,6 +69,58 @@ router.get("/students", async (req, res) => {
     res.status(400).send(error);
   }
 });
+
+//update student by id
+router.put("/students/:id", async (req, res) => {
+  try {
+    //get student id
+    const id = req.params.id;
+    const {
+      Name,
+      //Bio,
+      GPA,
+      School,
+      //SchoolGoal: String,
+      Grade,
+      Prayer,
+      //PrayerNotes: String,
+      TigrinyaLevel,
+      //TigrinyaNotes: String,
+      Qidasse,
+      //QidasseNotes: String,
+      BiblePg,
+    } = req.body;
+    const foundStudent = await Student.findByIdAndUpdate(
+      id,
+      {
+        Name,
+        //Bio,
+        GPA,
+        School,
+        //SchoolGoal: String,
+        Grade,
+        Prayer,
+        //PrayerNotes: String,
+        TigrinyaLevel,
+        //TigrinyaNotes: String,
+        Qidasse,
+        //QidasseNotes: String,
+        BiblePg,
+      },
+      {
+        upsert: true,
+        new: true,
+        runValidators: true,
+      }
+    );
+
+    res.status(200).send(foundStudent);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
+
 router.get("/students/test", (req, res) => {
   res.status(200).json({ message: "good job" });
 });
