@@ -3,7 +3,6 @@ import './App.css'
 import StudentsDisplay from './components/StudentsDisplay'
 import NavBar from './components/NavBar'
 import { getStudents } from './services/api'
-import { Outlet } from 'react-router-dom'
 
 
 function App() {
