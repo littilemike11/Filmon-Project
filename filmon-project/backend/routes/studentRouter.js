@@ -19,7 +19,7 @@ router.post("/students", async (req, res) => {
       //TigrinyaNotes: String,
       Qidasse,
       //QidasseNotes: String,
-      BibleCertificate,
+      BiblePg,
     } = req.body;
 
     const student = new Student({
@@ -35,7 +35,7 @@ router.post("/students", async (req, res) => {
       //TigrinyaNotes: String,
       Qidasse,
       //QidasseNotes: String,
-      BibleCertificate,
+      BiblePg,
     });
     //save to database
     await student.save();

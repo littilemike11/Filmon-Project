@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { createStudent } from "../services/api"
 import ErrorMessage from "./ErrorMessage";
-import { Link } from "react-router-dom";
 import NavBar from "./NavBar";
 export default function StudentForm() {
     const [newStudent, setNewStudent] = useState({
@@ -12,7 +11,7 @@ export default function StudentForm() {
         Prayer: "",
         TigrinyaLevel: "",
         Qidasse: "",
-        BibleCertificate: ""
+        BiblePg: 0
     })
     //error handling
     const [isError, setIsError] = useState(false);
@@ -42,7 +41,7 @@ export default function StudentForm() {
                 Prayer: "",
                 TigrinyaLevel: "",
                 Qidasse: "",
-                BibleCertificate: ""
+                BiblePg: 0
             }
         )
     }
@@ -92,9 +91,9 @@ export default function StudentForm() {
                 <input type="text" name="TigrinyaLevel" placeholder="Tirgrinya" value={newStudent.TigrinyaLevel}
                     onChange={handleInputChange} className="input input-bordered w-full max-w-xs" />
                 <div className="label">
-                    <span className="label-text">Bible Certificate</span>
+                    <span className="label-text">Bible Page</span>
                 </div>
-                <input type="text" name="BibleCertificate" placeholder="Bible Certificate" value={newStudent.BibleCertificate}
+                <input type="text" name="BiblePg" placeholder="Bible Page" value={newStudent.BiblePg}
                     onChange={handleInputChange} className="input input-bordered w-full max-w-xs" />
 
             </label>
@@ -103,73 +102,4 @@ export default function StudentForm() {
     )
 }
 
-/*
-<input
-  type="text"
-  name="Name"
-  placeholder="Full Name"
-  value={newStudent.Name}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
-<input
-  type="number"
-  name="GPA"
-  max={4.0}
-  min={0}
-  step={0.1}
-  placeholder="GPA"
-  value={newStudent.GPA}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
-<input
-  type="text"
-  name="Grade"
-  placeholder="Grade"
-  value={newStudent.Grade}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
-<input
-  type="text"
-  name="School"
-  placeholder="School Name"
-  value={newStudent.School}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
-<input
-  type="text"
-  name="Prayer"
-  placeholder="Prayer"
-  value={newStudent.Prayer}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
-<input
-  type="text"
-  name="Qidasse"
-  placeholder="Qidasse"
-  value={newStudent.Qidasse}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
-<input
-  type="text"
-  name="TigrinyaLevel"
-  placeholder="Tigrinya"
-  value={newStudent.TigrinyaLevel}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
-<input
-  type="text"
-  name="BibleCertificate"
-  placeholder="Bible Certificate"
-  value={newStudent.BibleCertificate}
-  onChange={handleInputChange}
-  className="input input-bordered w-full max-w-xs"
-/>
 
-*/

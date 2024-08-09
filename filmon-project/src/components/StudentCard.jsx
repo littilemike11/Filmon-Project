@@ -24,7 +24,7 @@ export default function StudentCard(props) {
                         Qidasse: {props.student.Qidasse}
                     </div>
                     <div className="shadow-xl p-1 my-2  border border-r rounded-md border-slate-400">
-                        Bible: {props.student.BibleCertificate}
+                        BiblePg: {props.student.BiblePg}
                     </div>
                 </div>
 

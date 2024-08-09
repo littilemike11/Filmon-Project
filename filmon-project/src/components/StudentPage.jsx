@@ -58,7 +58,7 @@ export default function StudentPage() {
                 </div>
                 <div className="card text-start border-2 border-slate-400 my-4">
                     <p>Bible</p>
-                    <p>{student.BibleCertificate}</p>
+                    <p>Pg: {student.BiblePg}</p>
                     <p>I'm just starting out so just need to keep a food schedule to make progress</p>
                 </div>
             </div>

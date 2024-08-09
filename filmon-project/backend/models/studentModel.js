@@ -16,7 +16,8 @@ const studentSchema = new mongoose.Schema({
   TigrinyaNotes: String,
   Qidasse: String,
   QidasseNotes: String,
-  BibleCertificate: String, // bible pg number
+  BiblePg: Number, // bible pg number
+  BibleNotes: String,
 });
 const Student = mongoose.model("Student", studentSchema);
 
