@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom"
 import NavBar from "./NavBar"
 export default function StudentPage() {
     const location = useLocation();
-    const student = location.state?.student;
+    const student = location.state;
     console.log(student)
     return (
         <>

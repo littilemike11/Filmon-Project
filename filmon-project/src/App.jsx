@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import StudentsDisplay from './components/StudentsDisplay'
 import NavBar from './components/NavBar'
-import { getStudents } from './services/api'
+import { getStudents, deleteStudent } from './services/api'
 
 
 function App() {
@@ -16,22 +16,30 @@ function App() {
     fetchStudents();
   }, [])
 
+  const handleDeleteStudent = async (id) => {
+    await deleteStudent(id);
+    await fetchStudents();
+  }
+
   return (
     <>
       <NavBar />
       <StudentsDisplay
         students={students}
+        handleDeleteStudent={handleDeleteStudent}
       />
     </>
   )
 }
 
 /*
+Bugs*
+the filtered students don't get updated when one is deleted, updates on pg refresh or change in searchbar
+potential solution- make student display a child of app, and use usecontext to pass the data instead of props
 Next steps
 1. add image implementation - elias 8/7 recording
-2. custom routing based on student Name - dylan
-3. implement use context to pass info to different pages/routes -dylan
-4. better mobile ui scaling
+2. implement use context to pass info to different pages/routes -dylan
+3. better mobile ui scaling
 extra
 1. admin/teacher
 2. login

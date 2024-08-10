@@ -42,13 +42,10 @@ export default function studentsDisplay(props) {
                     <ul>
                         {filteredStudents.map((student, index) => (
                             <li key={index}>
-                                <Link to={`/student/${student.Name}`}
-                                    state={{ student }}
-                                >
-                                    <StudentCard
-                                        student={student}
-                                    />
-                                </Link>
+                                <StudentCard
+                                    student={student}
+                                    handleDeleteStudent={props.handleDeleteStudent}
+                                />
                             </li>
                         ))}
                     </ul>
@@ -57,13 +54,10 @@ export default function studentsDisplay(props) {
                     <ul>
                         {props.students.map((student, index) => (
                             <li key={index}>
-                                <Link to={`/student/${student.Name}`}
-                                    state={{ student }}
-                                >
-                                    <StudentCard
-                                        student={student}
-                                    />
-                                </Link>
+                                <StudentCard
+                                    student={student}
+                                    handleDeleteStudent={props.handleDeleteStudent}
+                                />
                             </li>
                         ))}
 
