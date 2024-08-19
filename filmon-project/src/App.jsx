@@ -7,6 +7,8 @@ import { getStudents, deleteStudent } from './services/api'
 
 function App() {
   const [students, setStudents] = useState([])
+  const [filteredStudents, setFilteredStudents] = useState([])
+  const [searchText, setSearchText] = useState("")
 
   const fetchStudents = async () => {
     const response = await getStudents();
@@ -16,9 +18,21 @@ function App() {
     fetchStudents();
   }, [])
 
+  const handleFilter = (e) => {
+    const value = e.target.value;
+    setSearchText(value)
+    const filtered = students.filter(student =>
+      student.Name.toLowerCase().includes(value.toLowerCase()));//if searchText is used instead of value, its not updated by 1
+    console.log(filtered)
+    setFilteredStudents(filtered);
+  };
+
   const handleDeleteStudent = async (id) => {
     await deleteStudent(id);
     await fetchStudents();
+    //filters out the deleted students
+    setFilteredStudents(students.filter(student => student._id !== id))
+
   }
 
   return (
@@ -26,6 +40,11 @@ function App() {
       <NavBar />
       <StudentsDisplay
         students={students}
+        filteredStudents={filteredStudents}
+        searchText={searchText}
+        setSearchText={setSearchText}
+        handleFilter={handleFilter}
+        setFilteredStudents={setFilteredStudents}
         handleDeleteStudent={handleDeleteStudent}
       />
     </>

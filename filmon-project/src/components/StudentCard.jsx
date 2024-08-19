@@ -1,28 +1,16 @@
 import { Link } from "react-router-dom"
+import Modal from "./Modal"
 export default function StudentCard(props) {
-
     return (
         <>
 
             <div className="card my-8 bg-base-200 shadow-xl ">
                 <div className="card-actions justify-end z-10">
-                    <button
-                        onClick={() => (props.handleDeleteStudent(props.student._id))}
-                        className="btn btn-square btn-sm">
-
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
+                    <Modal
+                        handleDeleteStudent={props.handleDeleteStudent}
+                        studentName={props.student.Name}
+                        id={props.student._id}
+                    />
                 </div>
                 <Link to={`/student/${props.student.Name}`}
                     state={props.student}

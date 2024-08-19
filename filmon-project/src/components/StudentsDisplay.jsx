@@ -2,16 +2,16 @@ import { useState } from "react"
 import StudentCard from "./StudentCard"
 import { Link } from "react-router-dom"
 export default function studentsDisplay(props) {
-    const [searchText, setSearchText] = useState("")
-    const [filteredStudents, setFilteredStudents] = useState(props.students)
+    // const [searchText, setSearchText] = useState("")
+    // const [filteredStudents, setFilteredStudents] = useState(props.students)
 
-    const handleFilter = (e) => {
-        const value = e.target.value;
-        setSearchText(value)
-        const filtered = props.students.filter(student =>
-            student.Name.toLowerCase().includes(value.toLowerCase()));//if searchText is used instead of value, its not updated by 1
-        setFilteredStudents(filtered);
-    };
+    // const handleFilter = (e) => {
+    //     const value = e.target.value;
+    //     setSearchText(value)
+    //     const filtered = props.students.filter(student =>
+    //         student.Name.toLowerCase().includes(value.toLowerCase()));//if searchText is used instead of value, its not updated by 1
+    //     props.setFilteredStudents(filtered);
+    // };
 
     return (
         <>
@@ -19,7 +19,7 @@ export default function studentsDisplay(props) {
             <div className="flex">
                 <div className="flex-1">
                     <label className="input input-bordered flex items-center my-4 gap-2">
-                        <input type="text" value={searchText} onChange={handleFilter} className="grow" placeholder="Search" />
+                        <input type="text" value={props.searchText} onChange={props.handleFilter} className="grow" placeholder="Search" />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -38,9 +38,9 @@ export default function studentsDisplay(props) {
 
             {
                 //if there is search text, map filtered list
-                searchText ?
+                props.searchText ?
                     <ul>
-                        {filteredStudents.map((student, index) => (
+                        {props.filteredStudents.map((student, index) => (
                             <li key={index}>
                                 <StudentCard
                                     student={student}
