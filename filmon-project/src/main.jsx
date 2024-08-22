@@ -17,6 +17,10 @@ const router = createBrowserRouter([
     element: <StudentForm />
   },
   {
+    path: "/update/:Name",
+    element: <StudentForm />
+  },
+  {
     path: '/student',
     children: [
       {
